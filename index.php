@@ -36,6 +36,10 @@ function save_img($img)
 	if(get_cont($img))
 	{
 		$data = get_cont($img);
+		if(!is_dir('data/'))
+		{
+			mkdir('data/');
+		}
 		$file = 'data/'.md5(time()).$extension;
 		$image = fopen($file,'w+');
 		fwrite($image,$data);
